@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна сторінка</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .main-content, .login-section, .account-section, .homework-section {
+            text-align: center;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+            .button:hover {
+                background-color: #45a049;
+            }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .admin-info {
+            text-align: right;
+            margin-right: 20px;
+            font-size: 18px;
+        }
+
+            .admin-info img {
+                width: 25px;
+                vertical-align: middle;
+                margin-right: 5px;
+            }
+
+        .reload-message {
+            font-size: 16px;
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Інформація про адміністратора -->
+    <div class="admin-info">
+        <img src="https://img.icons8.com/ios-filled/50/000000/user.png" alt="Користувач" />
+        <span id="user-status">Ви не ввійшли</span>
+    </div>
+
+    <h1>Вітаємо на сайті!</h1>
+
+    <!-- Секція входу -->
+    <div class="login-section">
+        <h2>Вхід</h2>
+        <input type="text" id="login-input" placeholder="Логін" />
+        <input type="password" id="password-input" placeholder="Пароль" />
+        <br>
+        <button class="button" onclick="login()">Увійти</button>
+        <button class="button" onclick="forgotPassword()">Забув пароль</button>
+        <button class="button" onclick="skipLogin()">Пропустити вхід</button>
+    </div>
+
+    <!-- Головний контент -->
+    <div class="main-content hidden">
+        <button class="button" onclick="showSection('account')">Управління акаунтами</button>
+        <button class="button" onclick="showSection('homework')">Домашнє завдання</button>
+        <button class="button" onclick="logout()">Вийти</button>
+    </div>
+
+    <!-- Секція домашнього завдання -->
+    <div class="homework-section hidden">
+        <h2>Домашнє завдання</h2>
+        <h2>понеділок</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>день тиждня</th>
+                    <th>Предмет</th>
+                    <th>Завдання</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>24.01.2025-27.01.2025</td>
+                    <td>понеділок</td>
+                    <td>Математика</td>
+                    <td>стор.123, к.р.№7.</td>
+                </tr>
+                <tr>
+                    <td>22.01.2025-27.01.2025</td>
+                    <td>понеділок</td>
+                    <td>Зарубіжна література</td>
+                    <td>Стор.100 - 102 (знати загальні відомості про А. Ліндгрен); зі стор.103 - ...читати "Міо, мій Міо".</td>
+                </tr>
+                <tr>
+                    <td>24.01.2025-27.01.2025</td>
+                    <td>понеділок</td>
+                    <td>Географія</td>
+                    <td>прочитати § 29, розв'язати задачі</td>
+                </tr>
+                <tr>
+                    <td>20.01.2025-27.01.2025</td>
+                    <td>понеділок</td>
+                    <td>Культура добросусідства</td>
+                    <td>Ознайомитися з мат-лом підручника, стор. 8-12. Підготувати мат-л на тему "Що таке селфі? Чим селфі може бути небезпечне?"</td>
+                </tr>
+                <tr>
+                    <td>23.01.2025-27.01.2025</td>
+                    <td>понеділок</td>
+                    <td>Українська література</td>
+                    <td>Скласти порівняльну характеристику до образу Клима та Сашка, скласти сенкан.</td>
+                </tr>
+                <tr>
+                    <td>24.01.2025-27.01.2025</td>
+                    <td>понеділок</td>
+                    <td>Іноземна мова (англійська)</td>
+                    <td>p.75, ex.1 (READING); ex.1 (SPEAKING)</td>
+                </tr>
+                <tr>
+                    <td>24.01.2025-27.01.2025</td>
+                    <td>понеділок</td>
+                    <td>Історія України. Всесвітня історія. Громадянська освіта</td>
+                    <td>читати параграф 31</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>вівторок</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>день тиждня</th>
+                    <th>Предмет</th>
+                    <th>Завдання</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2?.01.2025-28.01.2025</td>
+                    <td>вівторок</td>
+                    <td>Історія України. Всесвітня історія. Громадянська освіта</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>24.01.2025-28.01.2025</td>
+                    <td>вівторок</td>
+                    <td>Фізична культура</td>
+                    <td>Виконувати ЗРВ, вправи для розвитку сили</td>
+                </tr>
+                <tr>
+                    <td>24.01.2025-28.01.2025</td>
+                    <td>вівторок</td>
+                    <td>Українська мова</td>
+                    <td>Параграф 26, вправа 274, 275.</td>
+                </tr>
+                <tr>
+                    <td>2?.01.2025-28.01.2025</td>
+                    <td>вівторок</td>
+                    <td>Математика</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>2?.01.2025-28.01.2025</td>
+                    <td>вівторок</td>
+                    <td>технології</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>2?.01.2025-28.01.2025</td>
+                    <td>вівторок</td>
+                    <td>Іноземна мова (англійська)</td>
+                    <td>дз немає</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>середа</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>день тиждня</th>
+                    <th>Предмет</th>
+                    <th>Завдання</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>28.01.2025-29.01.2025</td>
+                    <td>середа</td>
+                    <td>Фізична культура</td>
+                    <td>виконувати ЗРВ, вправи для розвитку гнучкості</td>
+                </tr>
+                <tr>
+                    <td>2?.01.2025-29.01.2025</td>
+                    <td>середа</td>
+                    <td>"Інтегрований курс "Пізнаємо природу""</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>2?.01.2025-29.01.2025</td>
+                    <td>середа</td>
+                    <td>Зарубіжна література</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>2?.01.2025-29.01.2025</td>
+                    <td>середа</td>
+                    <td>Українська мова</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>2?.01.2025-29.01.2025</td>
+                    <td>середа</td>
+                    <td>Математика</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>22.01.2025-29.01.2025</td>
+                    <td>середа</td>
+                    <td>Інтегрований курс "Мистецтво"</td>
+                    <td>Стор. 129-138; Створити зимовий пейзаж. Техніка виконання акварель або гуаш.</td>
+                </tr>
+                <tr>
+                    <td>28.01.2025-29.01.2025</td>
+                    <td>середа</td>
+                    <td>Здоров'я, безпека та добробут</td>
+                    <td>дз немає</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>четвер</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>день тиждня</th>
+                    <th>Предмет</th>
+                    <th>Завдання</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2?.01.2025-30.01.2025</td>
+                    <td>четвер</td>
+                    <td>"Інтегрований курс "Пізнаємо природу""</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>2?.01.2025-30.01.2025</td>
+                    <td>четвер</td>
+                    <td>Українська мова</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>2?.01.2025-30.01.2025</td>
+                    <td>четвер</td>
+                    <td>Історія України. Всесвітня історія. Громадянська освіта</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>2?.01.2025-30.01.2025</td>
+                    <td>четвер</td>
+                    <td>Українська література</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>2?.01.2025-30.01.2025</td>
+                    <td>четвер</td>
+                    <td>Технології</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>2?.01.2025-30.01.2025</td>
+                    <td>четвер</td>
+                    <td>Математика</td>
+                    <td>дз немає</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>п'ятниця</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>день тиждня</th>
+                    <th>Предмет</th>
+                    <th>Завдання</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>??.01.2025-31.01.2025</td>
+                    <td>п'ятниця</td>
+                    <td>Іноземна мова (англійська)</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>??.01.2025-31.01.2025</td>
+                    <td>п'ятниця</td>
+                    <td>Географія</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>??.01.2025-31.01.2025</td>
+                    <td>п'ятниця</td>
+                    <td>Українська мова</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>??.01.2025-31.01.2025</td>
+                    <td>п'ятниця</td>
+                    <td>Математика</td>
+                    <td>дз немає</td>
+                </tr>
+                <tr>
+                    <td>??.01.2025-31.01.2025</td>
+                    <td>п'ятниця</td>
+                    <td>Інформатика</td>
+                    <td>для першої групи: ??? . Для другої групи: learningapps.org/view851180</td>
+                </tr>
+                <tr>
+                    <td>??.01.2025-31.01.2025</td>
+                    <td>п'ятниця</td>
+                    <td>Фізична культура</td>
+                    <td>виконувати ЗРВ, вправи для розвитку гнучкості</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="reload-message">
+            Для повернення треба перезавантажити сторінку. Вибачте за незручності.
+        </div>
+        <button class="button" onclick="showSection('main')">Повернутися на головну</button>
+    </div>
+
+    <!-- Секція акаунтів -->
+    <div class="account-section hidden">
+        <h2>Управління акаунтами</h2>
+
+        <!-- Форма для створення акаунта -->
+        <div id="admin-controls" style="text-align: center; margin: 20px;" class="hidden">
+            <input type="text" id="new-login" placeholder="Логін" />
+            <input type="password" id="new-password" placeholder="Пароль" />
+            <button class="button" onclick="createAccount()">Додати акаунт</button>
+        </div>
+
+        <!-- Таблиця акаунтів -->
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Логін</th>
+                    <th>Дії</th>
+                </tr>
+            </thead>
+            <tbody id="account-table">
+                <!-- Дані акаунтів будуть додані сюди -->
+            </tbody>
+        </table>
+        <div class="reload-message">
+            Для повернення треба перезавантажити сторінку. Вибачте за незручності.
+            <button class="button" onclick="showSection('main')">Повернутися на головну</button>
+        </div>
+
+    <script>
+        const ADMIN_CODE = "11223344556677889900"; // Код для доступу адміністратора
+        let accounts = JSON.parse(localStorage.getItem("accounts")) || []; // Список акаунтів
+        let currentUser = null; // Поточний користувач
+
+        // Додати адміністратора в список акаунтів
+        if (accounts.length === 0) {
+            accounts.push({
+                login: "admin",
+                password: "admin123",
+                status: "Адмін"
+            });
+            localStorage.setItem("accounts", JSON.stringify(accounts));
+        }
+
+        // Вхід користувача
+        function login() {
+            const login = document.getElementById("login-input").value;
+            const password = document.getElementById("password-input").value;
+
+            const user = accounts.find(acc => acc.login === login && acc.password === password);
+
+            if (user) {
+                currentUser = user;
+                document.getElementById("user-status").innerText = `Ви ввійшли як ${user.login}`;
+                document.querySelector(".login-section").classList.add("hidden");
+                document.querySelector(".main-content").classList.remove("hidden");
+
+                if (user.status === "Адмін") {
+                    document.getElementById("admin-controls").classList.remove("hidden");
+                }
+            } else {
+                alert("Неправильний логін або пароль!");
+            }
+        }
+
+        // Функція "Забув пароль"
+        function forgotPassword() {
+            alert("Ця функція наразі не працює!");
+        }
+
+        // Пропуск входу
+        function skipLogin() {
+            document.querySelector(".login-section").classList.add("hidden");
+            document.querySelector(".main-content").classList.remove("hidden");
+            document.getElementById("user-status").innerText = "Ви увійшли як гість";
+        }
+
+        // Вихід користувача
+        function logout() {
+            currentUser = null;
+            document.getElementById("user-status").innerText = "Ви не ввійшли";
+            document.querySelector(".login-section").classList.remove("hidden");
+            document.querySelector(".main-content").classList.add("hidden");
+            document.querySelector(".homework-section").classList.add("hidden");
+            document.querySelector(".account-section").classList.add("hidden");
+        }
+
+        // Відображення секцій
+        function showSection(section) {
+            document.querySelector(".main-content").classList.add("hidden");
+            document.querySelector(".homework-section").classList.add("hidden");
+            document.querySelector(".account-section").classList.add("hidden");
+
+            if (section === "account") {
+                document.querySelector(".account-section").classList.remove("hidden");
+                renderAccounts();
+            } else if (section === "homework") {
+                document.querySelector(".homework-section").classList.remove("hidden");
+            }
+        }
+
+        // Створення нового акаунта
+        function createAccount() {
+            const login = document.getElementById("new-login").value;
+            const password = document.getElementById("new-password").value;
+
+            if (!currentUser || currentUser.status !== "Адмін") {
+                alert("Тільки адмін може створювати акаунти!");
+                return;
+            }
+
+            if (login.trim() === "" || password.trim() === "") {
+                alert("Логін та пароль не можуть бути порожніми!");
+                return;
+            }
+
+            accounts.push({ login, password, status: "Учень" });
+            localStorage.setItem("accounts", JSON.stringify(accounts));
+            renderAccounts();
+
+            document.getElementById("new-login").value = "";
+            document.getElementById("new-password").value = "";
+        }
+
+        // Видалення акаунта
+        function deleteAccount(index) {
+            accounts.splice(index, 1);
+            localStorage.setItem("accounts", JSON.stringify(accounts));
+            renderAccounts();
+        }
+
+        // Відображення таблиці акаунтів
+        function renderAccounts() {
+            const table = document.getElementById("account-table");
+            table.innerHTML = "";
+
+            accounts.forEach((account, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${account.login}</td>
+                        <td><button class="button" onclick="deleteAccount(${index})">Видалити</button></td>
+                    `;
+                table.appendChild(row);
+            });
+        }
+
+        // При завантаженні сторінки
+        window.onload = function () {
+            if (currentUser) {
+                document.getElementById("user-status").innerText = `Ви ввійшли як ${currentUser.login}`;
+                document.querySelector(".login-section").classList.add("hidden");
+                document.querySelector(".main-content").classList.remove("hidden");
+
+                if (currentUser.status === "Адмін") {
+                    document.getElementById("admin-controls").classList.remove("hidden");
+                }
+            } else {
+                document.getElementById("user-status").innerText = "Ви не ввійшли";
+            }
+            renderAccounts();
+        }
+    </script>
+
+</body>
+</html>
