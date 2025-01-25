@@ -400,36 +400,14 @@
         let currentUser = null; // Поточний користувач
 
         // Додати адміністратора в список акаунтів
-        if (accounts.length === 0) {
-    accounts.push(
-        {
-            login: "admin",
-            password: "admin123",
-            status: "Адмін"
-        },
-        {
-            login: "Славік",
-            password: "25802580",
-            status: "Адмін"
-        },
-        {
-            login: "Коля",
-            password: "7852",
-            status: "Учень"
-        },
-        {
-            login: "не задійствуваний",
-            password: "немає",
-            status: "???"
-        },
-        {
-            login: "не задійствуваний",
-            password: "немає",
-            status: "???"
-        }
-    );
-    localStorage.setItem("accounts", JSON.stringify(accounts));
-}
+         if (accounts.length === 0) {
+            accounts.push({
+                login: "admin",
+                password: "admin123",
+                status: "Адмін"
+            });
+            localStorage.setItem("accounts", JSON.stringify(accounts));
+        
 
         // Вхід користувача
         function login() {
