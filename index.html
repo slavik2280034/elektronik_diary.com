@@ -408,6 +408,14 @@
             });
             localStorage.setItem("accounts", JSON.stringify(accounts));
         }
+         if (accounts.length === 0) {
+            accounts.push({
+                login: "Коля",
+                password: "7852",
+                status: "Учень"
+            });
+            localStorage.setItem("accounts", JSON.stringify(accounts));
+        }
 
         // Вхід користувача
         function login() {
