@@ -87,9 +87,9 @@
         <input type="text" id="login-input" placeholder="Логін" />
         <input type="password" id="password-input" placeholder="Пароль" />
         <br>
-        <button class="button" onclick="login()>"Увійти</button>
-        <button class="button" onclick="forgotPassword()>"Забув пароль</button>
-        <button class="button" onclick="skipLogin()>"Пропустити вхід</button>
+        <button class="button" onclick="login()">Увійти</button>
+        <button class="button" onclick="forgotPassword()">Забув пароль</button>
+        <button class="button" onclick="skipLogin()">Пропустити вхід</button>
     </div>
 
     <!-- Головний контент -->
@@ -383,6 +383,7 @@
                 <tr>
                     <th>#</th>
                     <th>Логін</th>
+                    <th>Дії</th>
                 </tr>
             </thead>
             <tbody id="account-table">
@@ -400,14 +401,14 @@
         let currentUser = null; // Поточний користувач
 
         // Додати адміністратора в список акаунтів
-         if (accounts.length === 0) {
+        if (accounts.length === 0) {
             accounts.push({
                 login: "admin",
                 password: "admin123",
                 status: "Адмін"
             });
             localStorage.setItem("accounts", JSON.stringify(accounts));
-        
+        }
 
         // Вхід користувача
         function login() {
@@ -489,7 +490,12 @@
             document.getElementById("new-password").value = "";
         }
 
-    
+        // Видалення акаунта
+        function deleteAccount(index) {
+            accounts.splice(index, 1);
+            localStorage.setItem("accounts", JSON.stringify(accounts));
+            renderAccounts();
+        }
 
         // Відображення таблиці акаунтів
         function renderAccounts() {
