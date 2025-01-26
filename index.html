@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Головна сторінка</title>
-    <h2>Увага! Розклад оновлюєтся!</h2>
+    <h2>Увага! Розклад оновлено!</h2>
+    <h2>Увага! Тест нової функції!</h2>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -111,6 +112,11 @@
                     <th>день тиждня</th>
                     <th>Предмет</th>
                     <th>Завдання</th>
+                     <td>
+                            <button class="status-btn ${homework.done ? 'done' : 'not-done'}" onclick="toggleStatus('${homework.day}', '${homework.subject}')">
+                                ${homework.done ? 'Виконано' : 'Не виконано'}
+                            </button>
+                        </td>
                 </tr>
             </thead>
             <tbody>
@@ -119,42 +125,49 @@
                     <td>понеділок</td>
                     <td>Математика</td>
                     <td>стор.123, к.р.№7.</td>
+                    <th>Статус</th>
                 </tr>
                 <tr>
                     <td>22.01.2025-27.01.2025</td>
                     <td>понеділок</td>
                     <td>Зарубіжна література</td>
                     <td>Стор.100 - 102 (знати загальні відомості про А. Ліндгрен); зі стор.103 - ...читати "Міо, мій Міо".</td>
+                    <th>Статус</th>
                 </tr>
                 <tr>
                     <td>24.01.2025-27.01.2025</td>
                     <td>понеділок</td>
                     <td>Географія</td>
                     <td>прочитати § 29, розв'язати задачі</td>
+                    <th>Статус</th>
                 </tr>
                 <tr>
                     <td>20.01.2025-27.01.2025</td>
                     <td>понеділок</td>
                     <td>Культура добросусідства</td>
                     <td>Ознайомитися з мат-лом підручника, стор. 8-12. Підготувати мат-л на тему "Що таке селфі? Чим селфі може бути небезпечне?"</td>
+                    <th>Статус</th>
                 </tr>
                 <tr>
                     <td>23.01.2025-27.01.2025</td>
                     <td>понеділок</td>
                     <td>Українська література</td>
                     <td>Скласти порівняльну характеристику до образу Клима та Сашка, скласти сенкан.</td>
+                    <th>Статус</th>
                 </tr>
                 <tr>
                     <td>24.01.2025-27.01.2025</td>
                     <td>понеділок</td>
                     <td>Іноземна мова (англійська)</td>
                     <td>p.75, ex.1 (READING); ex.1 (SPEAKING)</td>
+                    <th>Статус</th>
                 </tr>
                 <tr>
                     <td>24.01.2025-27.01.2025</td>
                     <td>понеділок</td>
                     <td>Історія України. Всесвітня історія. Громадянська освіта</td>
                     <td>читати параграф 31</td>
+                    <th>Статус</th>
                 </tr>
             </tbody>
         </table>
@@ -166,6 +179,11 @@
                     <th>день тиждня</th>
                     <th>Предмет</th>
                     <th>Завдання</th>
+                    <td>
+                            <button class="status-btn ${homework.done ? 'done' : 'not-done'}" onclick="toggleStatus('${homework.day}', '${homework.subject}')">
+                                ${homework.done ? 'Виконано' : 'Не виконано'}
+                            </button>
+                        </td>
                 </tr>
             </thead>
             <tbody>
@@ -215,6 +233,11 @@
                     <th>день тиждня</th>
                     <th>Предмет</th>
                     <th>Завдання</th>
+                    <td>
+                            <button class="status-btn ${homework.done ? 'done' : 'not-done'}" onclick="toggleStatus('${homework.day}', '${homework.subject}')">
+                                ${homework.done ? 'Виконано' : 'Не виконано'}
+                            </button>
+                        </td>
                 </tr>
             </thead>
             <tbody>
@@ -271,6 +294,11 @@
                     <th>день тиждня</th>
                     <th>Предмет</th>
                     <th>Завдання</th>
+                    <td>
+                            <button class="status-btn ${homework.done ? 'done' : 'not-done'}" onclick="toggleStatus('${homework.day}', '${homework.subject}')">
+                                ${homework.done ? 'Виконано' : 'Не виконано'}
+                            </button>
+                        </td>
                 </tr>
             </thead>
             <tbody>
@@ -320,6 +348,11 @@
                     <th>день тиждня</th>
                     <th>Предмет</th>
                     <th>Завдання</th>
+                    <td>
+                            <button class="status-btn ${homework.done ? 'done' : 'not-done'}" onclick="toggleStatus('${homework.day}', '${homework.subject}')">
+                                ${homework.done ? 'Виконано' : 'Не виконано'}
+                            </button>
+                        </td>
                 </tr>
             </thead>
             <tbody>
@@ -366,6 +399,16 @@
         </div>
         <button class="button" onclick="showSection('main')">Повернутися на головну</button>
     </div>
+
+    // Зміна статусу виконаного завдання
+        function toggleStatus(day, subject) {
+            const homework = homeworkList.find(item => item.day === day && item.subject === subject);
+            if (homework) {
+                homework.done = !homework.done;
+                saveData();
+                renderTable();
+            }
+        }
 
     <!-- Секція акаунтів -->
     <div class="account-section hidden">
