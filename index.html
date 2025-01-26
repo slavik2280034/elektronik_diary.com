@@ -491,11 +491,7 @@
         }
 
         // Видалення акаунта
-        function deleteAccount(index) {
-            accounts.splice(index, 1);
-            localStorage.setItem("accounts", JSON.stringify(accounts));
-            renderAccounts();
-        }
+        
 
         // Відображення таблиці акаунтів
         function renderAccounts() {
