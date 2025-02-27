@@ -28,6 +28,13 @@
             color: white;
             text-decoration: none;
             padding: 10px 20px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+        nav a:hover {
+            background-color: #388e3c;
+            border-radius: 5px;
+            transform: scale(1.1);
         }
         .container {
             width: 80%;
@@ -35,6 +42,72 @@
             background: white;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            display: none;
+        }
+        .container.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #2e7d32;
+            color: white;
+            margin-top: 20px;
+        }
+        .task-button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .done {
+            background-color: #4caf50;
+            color: white;
+        }
+        .not-done {
+            background-color: #f44336;
+            color: white;
+        }
+        .done.animate, .not-done.animate {
+            animation: flash 0.5s ease;
+        }
+        @keyframes flash {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .ad-button {
+            background-color: #ffeb3b;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .ad-button:hover {
+            background-color: #fdd835;
+            transform: scale(1.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4caf50;
+            color: white;
         }
     </style>
 </head>
@@ -43,17 +116,77 @@
         Шкільний щоденник
     </header>
     <nav>
-        <a href="#">Головна</a>
-        <a href="#">Розклад</a>
-        <a href="#">Домашні завдання</a>
-        <a href="#">Повідомлення</a>
+        <a href="#" onclick="showPage('home')">Головна</a>
+        <a href="#" onclick="showPage('schedule')">Розклад і завдання</a>
+        <a href="#" onclick="showPage('ad')">Реклама</a>
+        <a href="#" onclick="showPage('creators')">Створювачі</a>
+        <a href="#" onclick="showPage('messages')">Повідомлення</a>
+        <a href="#" onclick="showPage('extras')">Додатково</a>
     </nav>
-    <div class="container">
-        <h2>Ласкаво просимо!</h2>
-        <p>Тут буде розклад уроків, домашні завдання та повідомлення.</p>
+    
+    <div id="home" class="container active">
+        <h2>Ласкаво просимо до шкільного щоденника!</h2>
+        <p>Тут ви можете переглянути розклад уроків, додати домашні завдання та слідкувати за своїм прогресом.</p>
     </div>
+    
+    <div id="schedule" class="container">
+        <h2>Розклад і завдання</h2>
+        <table>
+            <tr>
+                <th>День</th>
+                <th>Уроки</th>
+                <th>Домашні завдання</th>
+                <th>Статус</th>
+            </tr>
+            <tr>
+                <td>Понеділок</td>
+                <td>Математика, Українська, Історія</td>
+                <td>Розв'язати задачі, Вивчити вірш</td>
+                <td><button class="task-button not-done" onclick="toggleStatus(this)">Не зроблено</button></td>
+            </tr>
+            <tr>
+                <td>Вівторок</td>
+                <td>Фізика, Література, Англійська</td>
+                <td>Виконати лабораторну</td>
+                <td><button class="task-button not-done" onclick="toggleStatus(this)">Не зроблено</button></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div id="ad" class="container">
+        <h2>Реклама</h2>
+        <p>Перегляньте цікаві оголошення та рекламні пропозиції.</p>
+        <a href="https://slavik2280034.github.io/Princess-of-the-Abyss/" target="_blank">
+            <button class="ad-button">Відкрити гру!</button>
+        </a>
+    </div>
+    
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.container').forEach(container => {
+                container.classList.remove('active');
+            });
+            const page = document.getElementById(pageId);
+            if (page) page.classList.add('active');
+        }
+
+        function toggleStatus(button) {
+            button.classList.add('animate');
+            setTimeout(() => button.classList.remove('animate'), 500);
+            if (button.classList.contains('not-done')) {
+                button.classList.remove('not-done');
+                button.classList.add('done');
+                button.textContent = 'Зроблено';
+            } else {
+                button.classList.remove('done');
+                button.classList.add('not-done');
+                button.textContent = 'Не зроблено';
+            }
+        }
+    </script>
 </body>
 </html>
+
 
 <!--<!DOCTYPE html>
 <html lang="uk">
