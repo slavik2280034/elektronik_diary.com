@@ -118,7 +118,7 @@
     <nav>
         <a href="#" onclick="showPage('home')">Головна</a>
         <a href="#" onclick="showPage('schedule')">Розклад і завдання</a>
-        <a href="#" onclick="showPage('ad')">Реклама</a>
+        <!--<a href="#" onclick="showPage('ad')">Реклама</a>-->
         <a href="#" onclick="showPage('creators')">Створювачі</a>
         <a href="#" onclick="showPage('messages')">Повідомлення</a>
         <a href="#" onclick="showPage('extras')">Додатково</a>
@@ -131,7 +131,8 @@
     
     <div id="schedule" class="container">
         <h2>Розклад і завдання</h2>
-        <table>
+        <h2>ми ще не завезли розклад ви можете почекати але сайт зараз не підтримується! :(</h2>
+        <!-- <table>
             <tr>
                 <th>День</th>
                 <th>Уроки</th>
@@ -150,17 +151,34 @@
                 <td>Виконати лабораторну</td>
                 <td><button class="task-button not-done" onclick="toggleStatus(this)">Не зроблено</button></td>
             </tr>
-        </table>
+        </table>-->
     </div>
     
     <div id="ad" class="container">
-        <h2>Реклама</h2>
+        <h2>у нас немає реклами!</h2>
+        <!--<h2>Реклама</h2>
         <p>Перегляньте цікаві оголошення та рекламні пропозиції.</p>
         <a href="https://slavik2280034.github.io/Princess-of-the-Abyss/" target="_blank">
             <button class="ad-button">Відкрити гру!</button>
-        </a>
+        </a>-->
     </div>
-    
+
+    <div id="creators" class="container">
+        <h2>створювачі сайту</h2>
+        <p>chatGPT</p>
+        <p>Славко</p>
+    </div>
+
+    <div id="messages" class="container">
+        <h2>Повідомлення</h2>
+        <p>Наразі немає повідомлень від вчітелів школи та адміністрації сайту!</p>
+    </div>
+
+    <div id="extras" class"container">
+        <h2>Додатково</h2>
+        <p>слово дня:???</p>
+        <P>Загадка дня</P>
+    </div>
     <script>
         function showPage(pageId) {
             document.querySelectorAll('.container').forEach(container => {
