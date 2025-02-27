@@ -1,236 +1,61 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Розклад</title>
+    <title>Шкільний щоденник</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            text-align: center;
         }
-
-        .header {
-            background-color: #3f51b5;
+        header {
+            background-color: #2e7d32;
             color: white;
+            text-align: center;
             padding: 15px;
             font-size: 24px;
         }
-
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 20px;
-        }
-
-        .nav-button {
-            font-size: 20px;
-            padding: 10px;
-            cursor: pointer;
-            background-color: #3f51b5;
-            color: white;
-            border: none;
-            border-radius: 5px;
-        }
-
-            .nav-button:hover {
-                background-color: #303f9f;
-            }
-
-        .schedule {
+        nav {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            padding: 20px;
-            flex-wrap: wrap;
-        }
-
-        .day {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-            width: 250px;
-        }
-
-            .day h3 {
-                text-align: center;
-                margin-bottom: 10px;
-            }
-
-        .lesson {
-            border: 1px solid #ddd;
+            background-color: #4caf50;
             padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
         }
-
-            .lesson .time {
-                font-weight: bold;
-                color: #3f51b5;
-            }
-
-        .homework {
-            background: #ff9800;
+        nav a {
             color: white;
-            padding: 3px 7px;
-            border-radius: 4px;
-            font-size: 12px;
-            display: inline-block;
+            text-decoration: none;
+            padding: 10px 20px;
         }
-
-        .week {
-            display: none;
-        }
-
-        .active-week {
-            display: flex;
+        .container {
+            width: 80%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
-    <div class="header">Розклад</div>
-
-    <div class="navigation">
-        <button class="nav-button" onclick="prevWeek()">⬅ Попередній тиждень</button>
-        <div id="weekLabel">Тиждень 1</div>
-        <button class="nav-button" onclick="nextWeek()">Наступний тиждень ➡</button>
+    <header>
+        Шкільний щоденник
+    </header>
+    <nav>
+        <a href="#">Головна</a>
+        <a href="#">Розклад</a>
+        <a href="#">Домашні завдання</a>
+        <a href="#">Повідомлення</a>
+    </nav>
+    <div class="container">
+        <h2>Ласкаво просимо!</h2>
+        <p>Тут буде розклад уроків, домашні завдання та повідомлення.</p>
     </div>
-    <h1>дізнатися дз на разі не можливо, ми скоро виставим дз, сайт оновлюється кожен день з 20:00-20:30 сайт ще в розробці</h1>
-
-    <div class="schedule">
-        <div class="week active-week" id="week1">
-            <div class="day">
-                <h3>Понеділок</h3>
-                <div class="lesson"><span class="time">08:30</span> – Математика <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">10:00</span> – Зарубіжна література <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">10:00</span> – Географія <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">10:00</span> – Культура Добросусідства <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">10:00</span> – Українська література <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">10:00</span> – Іноземна мова (англіська) <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">10:00</span> – історія <span class="homework">ДЗ</span></div>
-            </div>
-            <div class="day">
-                <h3>Вівторок</h3>
-                <div class="lesson"><span class="time">08:30</span> – Історія <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">10:00</span> – Фізра <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">08:30</span> – Укр. Мова <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">08:30</span> – Математика</div>
-                <div class="lesson"><span class="time">08:30</span> – Технології</div>
-                <div class="lesson"><span class="time">08:30</span> – Англ. Мова</div>
-            </div>
-            <div class="day">
-                <h3>Середа</h3>
-                <div class="lesson"><span class="time">08:30</span> – Фізра <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">10:00</span> – Природа <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">08:30</span> – Зарубіжка <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">08:30</span> – Укр. Мова</div>
-                <div class="lesson"><span class="time">08:30</span> – Математика</div>
-                <div class="lesson"><span class="time">08:30</span> – Мистецтво <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">08:30</span> – З.Б.Д <span class="homework">ДЗ</span></div>
-            </div>
-            <div class="day">
-                <h3>Четвер</h3>
-                <div class="lesson"><span class="time">08:30</span> – Природа</div>
-                <div class="lesson"><span class="time">10:00</span> – Укр. Мова</div>
-                <div class="lesson"><span class="time">08:30</span> – Історія <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">08:30</span> – Укр. Літ <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">08:30</span> – Технології</div>
-                <div class="lesson"><span class="time">08:30</span> – Математика</div>
-            </div>
-            <div class="day">
-                <h3>П’ятниця</h3>
-                <div class="lesson"><span class="time">08:30</span> – Анг. Мова</div>
-                <div class="lesson"><span class="time">10:00</span> – Географія <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">08:30</span> – Укр. Мова</div>
-                <div class="lesson"><span class="time">08:30</span> – Математика</div>
-                <div class="lesson"><span class="time">08:30</span> – Інформатика <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">08:30</span> – фізра <span class="homework">ДЗ</span></div>
-            </div>
-        </div>
-
-        <div class="week" id="week2">
-            <div class="day">
-                <h3>Понеділок</h3>
-                <div class="lesson"><span class="time">08:30</span> – Математика</div>
-                <div class="lesson"><span class="time">10:00</span> – Зарубіжна література <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">10:00</span> – Географія</div>
-                <div class="lesson"><span class="time">10:00</span> – Культура Добросусідства</div>
-                <div class="lesson"><span class="time">10:00</span> – Українська література</div>
-                <div class="lesson"><span class="time">10:00</span> – Іноземна мова (англіська)</div>
-                <div class="lesson"><span class="time">10:00</span> – історія</div>
-            </div>
-            <div class="day">
-                <h3>Вівторок</h3>
-                <div class="lesson"><span class="time">08:30</span> – Історія</div>
-                <div class="lesson"><span class="time">10:00</span> – Фізра <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">08:30</span> – Укр. Мова</div>
-                <div class="lesson"><span class="time">08:30</span> – Математика</div>
-                <div class="lesson"><span class="time">08:30</span> – Технології</div>
-                <div class="lesson"><span class="time">08:30</span> – Англ. Мова</div>
-            </div>
-            <div class="day">
-                <h3>Середа</h3>
-                <div class="lesson"><span class="time">08:30</span> – Фізра <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">10:00</span> – Природа</div>
-                <div class="lesson"><span class="time">08:30</span> – Зарубіх+жка</div>
-                <div class="lesson"><span class="time">08:30</span> – Укр. Мова</div>
-                <div class="lesson"><span class="time">08:30</span> – Математика</div>
-                <div class="lesson"><span class="time">08:30</span> – Мистецтво <span class="homework">ДЗ</span></div>
-                <div class="lesson"><span class="time">08:30</span> – З.Б.Д</div>
-            </div>
-            <div class="day">
-                <h3>Четвер</h3>
-                <div class="lesson"><span class="time">08:30</span> – Природа</div>
-                <div class="lesson"><span class="time">10:00</span> – Укр. Мова</div>
-                <div class="lesson"><span class="time">08:30</span> – Історія</div>
-                <div class="lesson"><span class="time">08:30</span> – Укр. Літ</div>
-                <div class="lesson"><span class="time">08:30</span> – Технології</div>
-                <div class="lesson"><span class="time">08:30</span> – Математика</div>
-            </div>
-            <div class="day">
-                <h3>П’ятниця</h3>
-                <div class="lesson"><span class="time">08:30</span> – Анг. Мова</div>
-                <div class="lesson"><span class="time">10:00</span> – Географія</div>
-                <div class="lesson"><span class="time">08:30</span> – Укр. Мова</div>
-                <div class="lesson"><span class="time">08:30</span> – Математика</div>
-                <div class="lesson"><span class="time">08:30</span> – Інформатика</div>
-                <div class="lesson"><span class="time">08:30</span> – фізра <span class="homework">ДЗ</span></div>
-            </div>
-        </div>
-
-    <script>
-        let currentWeek = 1;
-        const totalWeeks = 2;
-
-        function showWeek(weekNumber) {
-            for (let i = 1; i <= totalWeeks; i++) {
-                document.getElementById("week" + i).classList.remove("active-week");
-            }
-            document.getElementById("week" + weekNumber).classList.add("active-week");
-            document.getElementById("weekLabel").innerText = "Тиждень " + weekNumber;
-        }
-
-        function nextWeek() {
-            if (currentWeek < totalWeeks) {
-                currentWeek++;
-                showWeek(currentWeek);
-            }
-        }
-
-        function prevWeek() {
-            if (currentWeek > 1) {
-                currentWeek--;
-                showWeek(currentWeek);
-            }
-        }
-    </script>
 </body>
-</html>-->
-<!DOCTYPE html>
+</html>
+
+<!--<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
@@ -298,4 +123,4 @@
 <h1>Схоже що цей сайт майже ніхто не дивиться. Тому користувач закрив на час прєкт.</h1> <h3>Увага! Якщо там є якась важлива інформація зверніться до користувача!</h3> <h5>Дякую за увагу!</h5>
     </div>
 </body>
-</html>
+</html>-->
